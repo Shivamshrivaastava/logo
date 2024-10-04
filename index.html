@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Partner Clone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        header img {
+            max-width: 150px;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        header .login-join {
+            display: flex;
+            align-items: center;
+        }
+
+        header .login-join a {
+            margin-left: 20px;
+            padding: 8px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+            padding: 50px 0;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-content .cta {
+            display: flex;
+            gap: 10px;
+        }
+
+        .hero-content input[type="email"] {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+        }
+
+        .hero-content .cta button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Ways to Partner Section */
+        .ways-to-partner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 0;
+        }
+
+        .partner-image {
+            flex: 1;
+        }
+
+        .partner-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .partner-content {
+            flex: 1;
+        }
+
+        .partner-content h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .partner-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .partner-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .partner-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .partner-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .ways-to-partner {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .hero-content input[type="email"] {
+                width: 100%;
+            }
+
+            .partner-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="container">
+        <img src="data:image/png;base64,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" alt="Logo">
+        <nav>
+            <a href="#">Blog</a>
+            <a href="#">Docs</a>
+            <a href="#">Community</a>
+            <a href="#">Shopify Academy</a>
+            <a href="#">shopify.com</a>
+        </nav>
+        <div class="login-join">
+            <a href="#">Log In</a>
+            <a href="#">Join now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div class="hero-content">
+            <h1>Build your business as a Shopify Partner</h1>
+            <p>Increase your earnings, enhance your skills, and expand your network as part of our thriving global community of agency, app, consulting, and technology partners.</p>
+            <div class="cta">
+                <input type="email" placeholder="Enter your email address">
+                <button>Join now</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-RcpoXHkzChYnDbFAyeQ8tamr/user-ehrvabJ3DufsCu8YJ7PqY5gl/img-r7AliMlFX6VwHvz9CCQDgn46.png?st=2024-09-29T06%3A46%3A01Z&se=2024-09-29T08%3A46%3A01Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-09-29T01%3A09%3A07Z&ske=2024-09-30T01%3A09%3A07Z&sks=b&skv=2024-08-04&sig=sCLY0P5n2neGO3T2s9VPD2GtLulosJnNJ6HR/JA4uM8%3D" alt="Hero Image">
+        </div>
+    </section>
+
+    <!-- Ways to Partner Section -->
+    <section class="ways-to-partner container">
+        <div class="partner-image">
+            <img src="https://cdn.shopify.com/b/shopify-brochure2-assets/2b7f5465eb7c05578b700222acc653db.png?width=744&height=646" alt="Partner Image">
+        </div>
+        <div class="partner-content">
+            <h2>Ways to partner with Shopify</h2>
+            <div class="partner-cards">
+                <div class="partner-card">
+                    <h3>Agency Partners</h3>
+                    <p>Earn revenue by introducing clients to Shopify. Gain unlimited access to our website development environment as you design, build, test, and optimize stores.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>App Partners</h3>
+                    <p>Develop and launch your app to Shopify merchants to help them build and scale their business.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>Consulting Partners</h3>
+                    <p>Deepen your consulting and implementation expertise to drive commerce transformation across the enterprise.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>Technology Partners</h3>
+                    <p>Build software integrations and applications with Shopify APIs to improve processes and experiences for joint customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
